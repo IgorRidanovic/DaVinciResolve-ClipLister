@@ -2,7 +2,7 @@ Davinci Resolve Page Flipper
 
 DaVinci Resolve V15 introduced the scripting API allowing user to automate traditionally manual procedures via Python or Lua.
 
-This script saves master bin clips and certain metadata to a csv file. Similar user assisted functionality already exists in Resolve. The purpose of this script is to demonstrate the possibility of automating such process.
+This script saves master bin clips and certain metadata to CSV and HTML files. Similar user assisted functionality already exists in Resolve. The purpose of this script is to demonstrate the possibility of automating such process.
 
 Requirements and Dependencies
 
