@@ -7,30 +7,32 @@
 
 import DaVinciResolveScript
 import csv
+from operator import itemgetter
 
 def getclipinfo(c):
+	counter = 1
 
 	# Set header row
-	cTable = [['#', 'Clip Name', 'Type', 'FPS', 'Duration', 'Resolution']]
+	cTable  = [['#', 'Clip Name', 'Type', 'FPS', 'Duration', 'Resolution']]
 
-	# Iterate through clips dictionary and get values.  
-	# The keys start with 1.0 float for the first clip.
-	for i in range(1, len(c) + 1):
-		cName = c[float(i)].GetName()
-		cType = c[float(i)].GetType()
-		cFPS  = c[float(i)].GetFrameRate()
-		cFPS  = str(round(cFPS, 2))
+	# Convert dictionary to list and iterate to get values. 
+	clips = c.values()
+	for i in clips:
 
-		cDur     = c[float(i)].GetDurationInFrames()
+		cFPS = i.GetFrameRate()
+		cFPS = str(round(cFPS, 2))
+
+		cDur = i.GetDurationInFrames()
 		if cDur != None:
 			cDur = str(int(cDur))
 
-		cRes     = c[float(i)].GetResolution()
+		cRes = i.GetResolution()
 		if cRes != None:
 			cRes = str(int(cRes[1.0])) + ' x ' + str(int(cRes[2.0]))
 
-		cTable.append([str(i), cName, cType, cFPS, cDur, cRes])
-		
+		cTable.append([str(counter), i.GetName(), i.GetType(), cFPS, cDur, cRes])
+		counter += 1
+	
 	return cTable
 
 # Export CSV
