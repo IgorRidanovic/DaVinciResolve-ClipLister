@@ -1,4 +1,4 @@
-Davinci Resolve Page Flipper
+Davinci Resolve Clip Lister
 
 DaVinci Resolve V15 introduced the scripting API allowing user to automate traditionally manual procedures via Python or Lua.
 
